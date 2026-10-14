@@ -1,0 +1,80 @@
+{
+	"geode": "5.11.1",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "yourname.auto-wave",
+	"name": "Auto Wave Level",
+	"version": "v1.0.0",
+	"developer": "Your Name",
+	"description": "One click: generates a random wave level and decorates it.",
+	"tags": ["editor", "utility", "content"],
+	"dependencies": {
+		"geode.node-ids": ">=v1.23.3"
+	},
+	"settings": {
+		"level-name": {
+			"type": "string",
+			"name": "Level name",
+			"description": "Prefix for generated levels. The seed is appended (GD limits names to 20 characters).",
+			"default": "Wave",
+			"match": "[A-Za-z0-9 _\\-]{1,14}"
+		},
+		"seed": {
+			"type": "int",
+			"name": "Seed",
+			"description": "Same seed + same settings = same level. 0 picks a random seed every time.",
+			"default": 0,
+			"min": 0,
+			"max": 2147483647,
+			"control": { "arrows": false, "slider": false, "input": true }
+		},
+		"length": {
+			"type": "int",
+			"name": "Length (seconds)",
+			"description": "Length of the wave section at the chosen speed.",
+			"default": 45,
+			"min": 15,
+			"max": 180,
+			"control": { "arrows": true, "arrow-step": 5, "slider": true, "slider-step": 5, "input": true }
+		},
+		"difficulty": {
+			"type": "string",
+			"name": "Difficulty",
+			"description": "How narrow and how twisty the corridor is.",
+			"default": "Hard",
+			"one-of": ["Easy", "Normal", "Hard", "Insane", "Extreme"]
+		},
+		"speed": {
+			"type": "string",
+			"name": "Speed",
+			"default": "1x",
+			"one-of": ["1x", "2x", "3x", "4x"]
+		},
+		"decoration": {
+			"type": "string",
+			"name": "Decoration",
+			"description": "None: bare corridor. Colors: palette, shaded walls and colour changes. Full: adds wall studs and beat pulses.",
+			"default": "Full",
+			"one-of": ["None", "Colors", "Full"]
+		},
+		"theme": {
+			"type": "string",
+			"name": "Colour theme",
+			"default": "Random",
+			"one-of": ["Random", "Neon", "Sunset", "Ocean", "Toxic", "Candy", "Ember", "Frost"]
+		},
+		"bpm": {
+			"type": "int",
+			"name": "BPM",
+			"description": "Timing of colour changes and pulses. Match it to your song.",
+			"default": 120,
+			"min": 60,
+			"max": 220,
+			"control": { "arrows": true, "arrow-step": 1, "slider": true, "slider-step": 1, "input": true }
+		}
+	}
+}
